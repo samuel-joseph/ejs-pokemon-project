@@ -10,43 +10,42 @@
 <body>
 
   <div class="main-class">
-    <div>
-      <p><%= npcname %></p>
+      <p class="ingametxt"><%= npcname %></p>
       <% if (health==200) { %> 
-        <p>HP 200</p>
+        <p class="ingametxt">HP 200</p>
         <% } else{ %>
-      <p>HP <%= npchealth %></p>
+      <p class="ingametxt">HP <%= npchealth %></p>
       <% } %>
-      <img src=<%= npcfrontimage %> alt="" />
-      <img src=<%= fx %> alt="" />
+    <div class="npccontainer">
+      <img class="npcimage" src=<%= npcfrontimage %> alt="" />
+      <img class="npcfx" src=<%= fx %> alt="" />
     </div>
-    <div>
-      <img src=<%= npcfx %> alt="" />
-      <img src=<%= backImage %> alt="" />
-      <p><%= name %></p>
-      <p>HP <%= health %></p>
+    <div class="usercontainer">
+      <img class="userfx" src=<%= npcfx %> alt="" />
+      <img class="userimage" src=<%= backImage %> alt="" />
     </div>
-
+    <p class="ingametxt"><%= name %></p>
+    <p class="ingametxt">HP <%= health %></p>
 
     <% if (npchealth>0&&health>0) { %> 
     
       <% if (health==200) { %> 
-        <button><a href='<%= battleUrl %>/200/30/<%= health %>/30/medium'>ATTACK</a></button>
-        <button><a href='<%= mypokemon %>'>RUN</a></button>
+        <button class="button"><a href='<%= battleUrl %>/200/30/<%= health %>/30/medium'>ATTACK</a></button>
+        <button class="button"><a href='<%= mypokemon %>'>RUN</a></button>
         <% } else{ %>
 
-    <button><a href='<%= battleUrl %>/<%= npchealth %>/30/<%= health %>/30/medium'>ATTACK</a></button>
-    <button><a href='<%= mypokemon %>'>RUN</a></button>
+    <button class="button"><a href='<%= battleUrl %>/<%= npchealth %>/30/<%= health %>/30/medium'>ATTACK</a></button>
+    <button class="button"><a href='<%= mypokemon %>'>RUN</a></button>
     <% } %>
     <% } else if(npchealth<=0&&health<=0) { %>
       <h4>Both pokemon fainted!</h4>
-      <button><a href='<%= mypokemon %>'>Go to profile</a></button>
+      <button class="button"><a href='<%= mypokemon %>'>Go to profile</a></button>
     <% } else if(npchealth<=0) { %>
     <h4>CONGRATULATIONS! You defeated <%= npcname %></h4>
-    <button><a href='<%= mypokemon %>/evolve'>Ready to Evolve</a></button>
+    <button class="button"><a href='<%= mypokemon %>/evolve'>Ready to Evolve</a></button>
     <% } else if(health<=0) { %>
       <h4>TOO BAD! Your pokemon <%= name %> lost!</h4>
-      <button><a href='<%= mypokemon %>'>Go to profile</a></button>
+      <button class="button"><a href='<%= mypokemon %>'>Go to profile</a></button>
       <% } %>
   </div>
 </body>

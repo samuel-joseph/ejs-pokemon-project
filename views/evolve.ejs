@@ -9,12 +9,12 @@
 </head>
 <body>
   <div class="main-class">
-    <div>
-      <img src=<%= preevolve %> alt="" />
-      <img src=<%= frontImage %> alt="" />
-      <p>Your pokemon <%= prename %> is evolving into <%= name %>! </p>
+    <div class="toevolvecontainer">
+      <img class="pre" src=<%= preevolve %> alt="" />
+      <img class="post" src=<%= frontImage %> alt="" />
   </div>
-  <button><a href='<%= mypokemon %>'>Go to profile</a></button>
+  <p class="ingametxt">Your pokemon <%= prename %> is evolving into <%= name %>! </p>
+  <button class="button"><a href='<%= mypokemon %>'>Go to profile</a></button>
   </div>
 </body>
 </html>

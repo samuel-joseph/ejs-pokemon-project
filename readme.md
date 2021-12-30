@@ -13,6 +13,7 @@ start with
 
 
   HEROKU DEPLOY
+  - in your main file add const port = process.env.PORT || 3400;
   - heroku login
   - need to initialize git first in the directory
   - git init

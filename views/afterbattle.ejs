@@ -10,26 +10,29 @@
 <body>
   <div class="main-class">
     <div>
-      <img src=<%= frontImage %> alt="" />
-      <p>Name:<%= name %> </p>
-      <p>Type:<%= type %> </p>
+      <img class="winnerimage" src=<%= frontImage %> alt="" />
+      <div>
+      <p class="ingametxt"><%= name %></p>
+      <p class="ingametxt">HP<%= health %></p>
+      <p class="ingametxt">Type:<%= type %> </p>
+    </div>
   </div>
   <% if (health<500) { %> 
-    <button><a href= '<%=battleUrl %>'>
+    <button class="button"><a href= '<%=battleUrl %>'>
       RATTATA
     </a></button>
-  <button><a href= '<%=battleUrl %>/medium'>
+  <button class="button"><a href= '<%=battleUrl %>/medium'>
     SNORLAX
   </a></button>
   <% } else{ %>
-    <button><a href= '<%=battleUrl %>'>
+    <button class="button"><a href= '<%=battleUrl %>'>
       RATTATA
     </a></button>
-    <button><a href= '<%=battleUrl %>/hard'>
+    <button class="button"><a href= '<%=battleUrl %>/hard'>
       FINAL BATTLE
     </a></button>
   <% } %>
-  <button><a href= "/">
+  <button class="button"><a href= "/">
     NEW GAME
   </a></button>
   </div>

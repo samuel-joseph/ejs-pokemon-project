@@ -13,7 +13,8 @@ const switchFunction = (pokemon) => {
       obj.name = "Charmander";
       obj.health = 200;
       obj.type = "Fire";
-      obj.fx = "https://c.tenor.com/baki-fxZVt0AAAAM/fire-flame.gif";
+      obj.fx =
+        "https://i.pinimg.com/originals/29/ca/76/29ca767e0d917e541cd18eb97f4825dc.gif";
       obj.frontImage =
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif";
       obj.backImage =
@@ -39,7 +40,7 @@ const switchFunction = (pokemon) => {
       obj.health = 500;
       obj.type = "Fire";
       obj.fx =
-        "https://c.tenor.com/baki-fxZVt0AAAAM/fire-flame.gifhttps://i.ya-webdesign.com/images/transparent-explosions-animated-gif-4.gif";
+        "https://i.ya-webdesign.com/images/transparent-explosions-animated-gif-4.gif";
       obj.frontImage =
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/6.gif";
       obj.backImage =
@@ -75,7 +76,8 @@ const switchFunction = (pokemon) => {
       obj.name = "Blastoise";
       obj.health = 500;
       obj.type = "Water";
-      obj.fx = "https://media2.giphy.com/media/uiC2aVVRnSO7uUgOqD/200w.gif";
+      obj.fx =
+        "https://static.wikia.nocookie.net/62a38c55-7829-46d3-9991-1b6352195339/scale-to-width/755";
       obj.frontImage =
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/9.gif";
       obj.backImage =
@@ -95,7 +97,7 @@ const switchFunction = (pokemon) => {
       obj.battleUrl = "/bulbasaur/battle";
       obj.mypokemon = "/bulbasaur";
       return obj;
-    case "Ivysaur":
+    case "ivysaur":
       obj.name = "Ivysaur";
       obj.health = 300;
       obj.type = "Grass";
@@ -107,8 +109,8 @@ const switchFunction = (pokemon) => {
       obj.battleUrl = "/ivysaur/battle";
       obj.mypokemon = "/ivysaur";
       return obj;
-    case "Venosaur":
-      obj.name = "venosaur";
+    case "venosaur":
+      obj.name = "Venosaur";
       obj.health = 500;
       obj.type = "Grass";
       obj.fx = "https://media3.giphy.com/media/11XU8sAwhvwjok/source.gif";
@@ -215,7 +217,8 @@ app.get("/:pokemon/battle/hard", (req, res) => {
   obj.npcfrontimage =
     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/150.gif";
   obj.npchealth = 500;
-  obj.npcfx = "";
+  obj.npcfx =
+    "https://pa1.narvii.com/6916/24eaf472b2d3a587aed0c268fcd42f35aedb7061r1-1024-1024_hq.gif";
 
   res.render("hardbattle", obj);
 });
@@ -232,7 +235,8 @@ app.get("/:pokemon/battle/:npchp/:userattk/:userhp/:npcattk", (req, res) => {
     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/19.gif";
   obj.npchealth = npchp - parseInt(userattk) + Math.floor(Math.random() * 20);
   obj.health = userhp - parseInt(npcattk) + Math.floor(Math.random() * 20);
-  obj.npcfx = "";
+  obj.npcfx =
+    "https://cdnb.artstation.com/p/assets/images/images/028/802/877/original/adrian-arellano-villa-attack-impact.gif?1595547012";
 
   res.render("battle", obj);
 });

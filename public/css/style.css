@@ -39,16 +39,198 @@ body {
   color: white;
 }
 
+.npccontainer {
+  display: flex;
+  flex-direction: column;
+}
+
 .npcfx {
-  width: 10vw;
+  width: 15vw;
   position: fixed;
+  padding-left: 200px;
+  animation-name: npceffects;
+  animation-duration: 1s;
+  animation-direction: initial;
+  opacity: 0;
+}
+
+@keyframes npceffects {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .npcimage {
+  margin-left: 200px;
   width: 10vw;
-  position: fixed;
+  animation-name: moveleft;
+  animation-duration: 3s;
+  animation-direction: initial;
+}
+
+@keyframes moveleft {
+  50% {
+    margin-left: 200px;
+  }
+  60% {
+    margin-left: 100px;
+  }
+  80% {
+    margin-left: 100px;
+  }
+  100% {
+    margin-left: 200px;
+  }
+}
+
+.ingametxt {
+  font-weight: bold;
 }
 
 .userfx {
   position: fixed;
+  width: 15vw;
+  padding-right: 200px;
+  animation-name: usereffects;
+  animation-duration: 4s;
+  animation-direction: initial;
+  opacity: 0;
+}
+
+@keyframes usereffects {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.userimage {
+  width: 10vw;
+  padding-right: 200px;
+  animation-name: moveright;
+  animation-duration: 1s;
+  animation-direction: initial;
+}
+
+.winnerimage {
+  width: 12vw;
+}
+
+@keyframes moveright {
+  0% {
+    padding-right: 200px;
+  }
+  50% {
+    padding-right: 0px;
+  }
+  100% {
+    padding-right: 200px;
+  }
+}
+
+.toevolvecontainer {
+  display: flex;
+  flex-direction: column;
+  height: 25%;
+  align-items: center;
+}
+
+.pre {
+  width: 10vw;
+  position: fixed;
+  animation-name: preevolve;
+  animation-duration: 5s;
+  animation-direction: initial;
+  opacity: 0;
+}
+
+@keyframes preevolve {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+}
+
+.post {
+  width: 12vw;
+  position: fixed;
+  animation-name: postevolve;
+  animation-duration: 5s;
+  animation-direction: initial;
+}
+
+@keyframes postevolve {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+}
+
+.confetti {
+  background-image: url("https://media3.giphy.com/media/5T06ftQWtCMy0XFaaI/giphy.gif");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid red;
+  width: 50vw;
+  height: 75vh;
+  margin: 0 auto;
+  margin-top: 100px;
+  border-radius: 20px;
+  background-color: white;
+  justify-content: center;
 }
