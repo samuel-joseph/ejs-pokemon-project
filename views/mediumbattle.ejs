@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+  <div class="main-class">
+    <div>
+      <p><%= npcname %></p>
+      <% if (health==200) { %> 
+        <p>HP 200</p>
+        <% } else{ %>
+      <p>HP <%= npchealth %></p>
+      <% } %>
+      <img src=<%= npcfrontimage %> alt="" />
+      <img src=<%= fx %> alt="" />
+    </div>
+    <div>
+      <img src=<%= npcfx %> alt="" />
+      <img src=<%= backImage %> alt="" />
+      <p><%= name %></p>
+      <p>HP <%= health %></p>
+    </div>
+
+
+    <% if (npchealth>0&&health>0) { %> 
+    
+      <% if (health==200) { %> 
+        <button><a href='<%= battleUrl %>/200/30/<%= health %>/30/medium'>ATTACK</a></button>
+        <button><a href='<%= mypokemon %>'>RUN</a></button>
+        <% } else{ %>
+
+    <button><a href='<%= battleUrl %>/<%= npchealth %>/30/<%= health %>/30/medium'>ATTACK</a></button>
+    <button><a href='<%= mypokemon %>'>RUN</a></button>
+    <% } %>
+    <% } else if(npchealth<=0&&health<=0) { %>
+      <h4>Both pokemon fainted!</h4>
+      <button><a href='<%= mypokemon %>'>Go to profile</a></button>
+    <% } else if(npchealth<=0) { %>
+    <h4>CONGRATULATIONS! You defeated <%= npcname %></h4>
+    <button><a href='<%= mypokemon %>/evolve'>Ready to Evolve</a></button>
+    <% } else if(health<=0) { %>
+      <h4>TOO BAD! Your pokemon <%= name %> lost!</h4>
+      <button><a href='<%= mypokemon %>'>Go to profile</a></button>
+      <% } %>
+  </div>
+</body>
+</html>

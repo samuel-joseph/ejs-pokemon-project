@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div class="main-class">
+    <div>
+      <img src=<%= frontImage %> alt="" />
+      <p>Name:<%= name %> </p>
+      <p>Type:<%= type %> </p>
+  </div>
+  <% if (health<500) { %> 
+    <button><a href= '<%=battleUrl %>'>
+      RATTATA
+    </a></button>
+  <button><a href= '<%=battleUrl %>/medium'>
+    SNORLAX
+  </a></button>
+  <% } else{ %>
+    <button><a href= '<%=battleUrl %>'>
+      RATTATA
+    </a></button>
+    <button><a href= '<%=battleUrl %>/hard'>
+      FINAL BATTLE
+    </a></button>
+  <% } %>
+  <button><a href= "/">
+    NEW GAME
+  </a></button>
+  </div>
+</body>
+</html>
