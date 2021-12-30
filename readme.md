@@ -17,4 +17,7 @@ start with
   - need to initialize git first in the directory
   - git init
   - heroku create
+  - git add .
+  - git commit "..."
   - git push heroku main
+  
