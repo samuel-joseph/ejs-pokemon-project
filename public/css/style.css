@@ -1,18 +1,22 @@
 body {
   background-color: black;
+  font-family: "Raleway", sans-serif;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  color: white;
+  font-size: 18pt;
 }
 
 .main-class {
   display: flex;
+  background-color: black;
   flex-direction: column;
   align-items: center;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   width: 50vw;
   height: 75vh;
   margin: 0 auto;
   margin-top: 100px;
   border-radius: 20px;
-  background-color: white;
   justify-content: center;
 }
 
@@ -68,7 +72,7 @@ body {
 
 .npcimage {
   margin-left: 200px;
-  width: 10vw;
+  width: 9vw;
   animation-name: moveleft;
   animation-duration: 3s;
   animation-direction: initial;
@@ -93,6 +97,14 @@ body {
   font-weight: bold;
 }
 
+.starter-container {
+  padding: 50px 50px;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
 .userfx {
   position: fixed;
   width: 15vw;
@@ -101,6 +113,15 @@ body {
   animation-duration: 4s;
   animation-direction: initial;
   opacity: 0;
+}
+
+progress {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 50%;
+  border-radius: 20px;
+  margin-bottom: 50px;
 }
 
 @keyframes usereffects {
@@ -135,7 +156,7 @@ body {
     padding-right: 200px;
   }
   50% {
-    padding-right: 0px;
+    padding-right: 50px;
   }
   100% {
     padding-right: 200px;
@@ -233,4 +254,39 @@ body {
   border-radius: 20px;
   background-color: white;
   justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .button {
+    width: 50vw;
+    height: 10vh;
+  }
+  .npcimage {
+    width: 25vw;
+  }
+  .userimage {
+    width: 30vw;
+  }
+  progress {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 70vw;
+    height: 10vh;
+  }
+
+  .npcfx {
+    width: 35vw;
+  }
+
+  .winnerimage {
+    width: 40vw;
+  }
+
+  .userfx {
+    width: 38vw;
+  }
+
+  .main-class > div > a > img {
+    width: 30vw;
+  }
 }

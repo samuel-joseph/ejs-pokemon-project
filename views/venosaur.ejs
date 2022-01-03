@@ -14,30 +14,29 @@
 
   <div class="main-class">
     <p class="ingametxt"><%= npcname %></p>
-      <progress class="hp" value='<%= npchealth %>' max='<%= npcmaxhealth %>'></progress>
+    <progress class="hp" value='<%= npchealth %>' max='<%= npcmaxhealth %>'></progress>
     <div class="npccontainer">
       <img class="npcimage" src=<%= npcfrontimage %> alt="" />
       <img class="npcfx" src=<%= fx %> alt="" />
     </div>
     <div class="usercontainer">
-      <h1></h1>
       <img class="userfx" src=<%= npcfx %> alt="" />
       <img class="userimage" src=<%= backImage %> alt="" />
     </div>
     <p class="ingametxt"><%= name %></p>
-      <progress class="hp" value='<%= health %>' max='<%= maxhealth %>'></progress>
+    <progress class="hp" value='<%= health %>' max='<%= maxhealth %>'></progress>
     <% if (npchealth>0&&health>0) { %> 
-    <button class="button"><a href='<%= battleUrl %>/<%= npchealth %>/30/<%= health %>/30'>ATTACK</a></button>
+    <button class="button"><a href='<%= battleUrl %>/<%= npchealth %>/30/<%= health %>/28/charizard'>ATTACK</a></button>
     <button class="button"><a href='<%= mypokemon %>'>RUN</a></button>
     <% } else if(npchealth<=0&&health<=0) { %>
       <h4>Both pokemon fainted!</h4>
-      <button class="button"><a href='<%= mypokemon %>'>Go to profile</a></button>
+      <button class="button"><a href='<%= mypokemon %>/afterbattle'>Go to profile</a></button>
     <% } else if(npchealth<=0) { %>
-    <h4>CONGRATULATIONS! You defeated <%= npcname %></h4>
-    <button class="button"><a href='<%= mypokemon %>/afterbattle'>Go to profile</a></button>
+      <h4>CONGRATULATIONS! You defeated your rival <%= npcname %>! In the "FINAL BATTLE awaits the strongest pokemon!</h4>
+    <button class="button"><a href='<%= mypokemon %>/finalbattle'>END</a></button>
     <% } else if(health<=0) { %>
       <h4>TOO BAD! Your pokemon <%= name %> lost!</h4>
-      <button class="button"><a href='<%= mypokemon %>'>Go to profile</a></button>
+      <button class="button"><a href='<%= mypokemon %>/afterbattle'>Go to profile</a></button>
       <% } %>
   </div>
 </body>

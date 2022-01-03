@@ -12,6 +12,7 @@ const switchFunction = (pokemon) => {
     case "charmander":
       obj.name = "Charmander";
       obj.health = 200;
+      obj.maxhealth = 200;
       obj.type = "Fire";
       obj.fx =
         "https://i.pinimg.com/originals/29/ca/76/29ca767e0d917e541cd18eb97f4825dc.gif";
@@ -25,6 +26,7 @@ const switchFunction = (pokemon) => {
     case "charmeleon":
       obj.name = "Charmeleon";
       obj.health = 300;
+      obj.maxhealth = 300;
       obj.type = "Fire";
       obj.fx =
         "https://cutewallpaper.org/21/fire-gif-transparent-background/Fireball-gif-transparent-clipart-images-gallery-for-free-.gif";
@@ -38,6 +40,7 @@ const switchFunction = (pokemon) => {
     case "charizard":
       obj.name = "Charizard";
       obj.health = 500;
+      obj.maxhealth = 500;
       obj.type = "Fire";
       obj.fx =
         "https://i.ya-webdesign.com/images/transparent-explosions-animated-gif-4.gif";
@@ -51,6 +54,7 @@ const switchFunction = (pokemon) => {
     case "squirtle":
       obj.name = "Squirtle";
       obj.health = 200;
+      obj.maxhealth = 200;
       obj.type = "Water";
       obj.fx = "https://thumbs.gfycat.com/InformalWellwornCockroach-small.gif";
       obj.frontImage =
@@ -63,6 +67,7 @@ const switchFunction = (pokemon) => {
     case "wartortle":
       obj.name = "Wartortle";
       obj.health = 300;
+      obj.maxhealth = 300;
       obj.type = "Water";
       obj.fx = "https://webstockreview.net/images/clipart-mountain-ocean-1.gif";
       obj.frontImage =
@@ -75,6 +80,7 @@ const switchFunction = (pokemon) => {
     case "blastoise":
       obj.name = "Blastoise";
       obj.health = 500;
+      obj.maxhealth = 500;
       obj.type = "Water";
       obj.fx =
         "https://static.wikia.nocookie.net/62a38c55-7829-46d3-9991-1b6352195339/scale-to-width/755";
@@ -88,6 +94,7 @@ const switchFunction = (pokemon) => {
     case "bulbasaur":
       obj.name = "Bulbasaur";
       obj.health = 200;
+      obj.maxhealth = 200;
       obj.type = "Grass";
       obj.fx = "https://i.imgur.com/uDJiGRk.gif";
       obj.frontImage =
@@ -100,6 +107,7 @@ const switchFunction = (pokemon) => {
     case "ivysaur":
       obj.name = "Ivysaur";
       obj.health = 300;
+      obj.maxhealth = 300;
       obj.type = "Grass";
       obj.fx = "https://media0.giphy.com/media/AEHWYyOBSmYRDl7kDc/giphy.gif";
       obj.frontImage =
@@ -112,6 +120,7 @@ const switchFunction = (pokemon) => {
     case "venosaur":
       obj.name = "Venosaur";
       obj.health = 500;
+      obj.maxhealth = 500;
       obj.type = "Grass";
       obj.fx = "https://media3.giphy.com/media/11XU8sAwhvwjok/source.gif";
       obj.frontImage =
@@ -172,6 +181,12 @@ app.get("/:pokemon/afterbattle", (req, res) => {
   res.render("afterbattle", obj);
 });
 
+app.get("/:pokemon/finalbattle", (req, res) => {
+  const pokemon = req.params.pokemon;
+  let obj = switchFunction(pokemon);
+  res.render("finalbattle", obj);
+});
+
 app.get("/:pokemon/champion", (req, res) => {
   const pokemon = req.params.pokemon;
   let obj = switchFunction(pokemon);
@@ -191,6 +206,7 @@ app.get("/:pokemon/battle", (req, res) => {
   obj.npcfrontimage =
     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/19.gif";
   obj.npchealth = 150;
+  obj.npcmaxhealth = 150;
   obj.npcfx =
     "https://cdnb.artstation.com/p/assets/images/images/028/802/877/original/adrian-arellano-villa-attack-impact.gif?1595547012";
 
@@ -204,10 +220,50 @@ app.get("/:pokemon/battle/medium", (req, res) => {
   obj.npcfrontimage =
     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/143.gif";
   obj.npchealth = 300;
+  obj.npcmaxhealth = 300;
   obj.npcfx =
     "https://cdna.artstation.com/p/assets/images/images/015/934/194/original/joshua-gates-quick-explosion.gif?1550235110";
 
   res.render("mediumbattle", obj);
+});
+
+app.get("/:pokemon/battle/charizard", (req, res) => {
+  const pokemon = req.params.pokemon;
+  let obj = switchFunction(pokemon);
+  let npc = switchFunction("charizard");
+  obj.npcname = npc.name;
+  obj.npcfrontimage = npc.frontImage;
+  obj.npchealth = npc.health;
+  obj.npcmaxhealth = npc.maxhealth;
+  obj.npcfx = npc.fx;
+
+  res.render("venosaur", obj);
+});
+
+app.get("/:pokemon/battle/blastoise", (req, res) => {
+  const pokemon = req.params.pokemon;
+  let obj = switchFunction(pokemon);
+  let npc = switchFunction("blastoise");
+  obj.npcname = npc.name;
+  obj.npcfrontimage = npc.frontImage;
+  obj.npchealth = npc.health;
+  obj.npcmaxhealth = npc.maxhealth;
+  obj.npcfx = npc.fx;
+
+  res.render("charizard", obj);
+});
+
+app.get("/:pokemon/battle/venosaur", (req, res) => {
+  const pokemon = req.params.pokemon;
+  let obj = switchFunction(pokemon);
+  let npc = switchFunction("venosaur");
+  obj.npcname = npc.name;
+  obj.npcfrontimage = npc.frontImage;
+  obj.npchealth = npc.health;
+  obj.npcmaxhealth = npc.maxhealth;
+  obj.npcfx = npc.fx;
+
+  res.render("blastoise", obj);
 });
 
 app.get("/:pokemon/battle/hard", (req, res) => {
@@ -217,6 +273,7 @@ app.get("/:pokemon/battle/hard", (req, res) => {
   obj.npcfrontimage =
     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/150.gif";
   obj.npchealth = 500;
+  obj.npcmaxhealth = 500;
   obj.npcfx =
     "https://pa1.narvii.com/6916/24eaf472b2d3a587aed0c268fcd42f35aedb7061r1-1024-1024_hq.gif";
 
@@ -235,6 +292,7 @@ app.get("/:pokemon/battle/:npchp/:userattk/:userhp/:npcattk", (req, res) => {
     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/19.gif";
   obj.npchealth = npchp - parseInt(userattk) + Math.floor(Math.random() * 20);
   obj.health = userhp - parseInt(npcattk) + Math.floor(Math.random() * 20);
+  obj.npcmaxhealth = 150;
   obj.npcfx =
     "https://cdnb.artstation.com/p/assets/images/images/028/802/877/original/adrian-arellano-villa-attack-impact.gif?1595547012";
 
@@ -253,7 +311,7 @@ app.get(
     obj.npcname = "Snorlax";
     obj.npcfrontimage =
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/143.gif";
-
+    obj.npcmaxhealth = 300;
     obj.npchealth =
       npchp - (parseInt(userattk) + Math.floor(Math.random() * 20));
     obj.health = userhp - (parseInt(npcattk) + Math.floor(Math.random() * 15));
@@ -276,7 +334,7 @@ app.get(
     obj.npcname = "Mewtwo";
     obj.npcfrontimage =
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/150.gif";
-
+    obj.npcmaxhealth = 500;
     obj.npchealth =
       npchp - (parseInt(userattk) + Math.floor(Math.random() * 50));
     obj.health = userhp - (parseInt(npcattk) + Math.floor(Math.random() * 50));
@@ -284,6 +342,75 @@ app.get(
       "https://pa1.narvii.com/6916/24eaf472b2d3a587aed0c268fcd42f35aedb7061r1-1024-1024_hq.gif";
 
     res.render("hardbattle", obj);
+  }
+);
+
+app.get(
+  "/:pokemon/battle/:npchp/:userattk/:userhp/:npcattk/blastoise",
+  (req, res) => {
+    const pokemon = req.params.pokemon;
+    const userattk = req.params.userattk;
+    const userhp = req.params.userhp;
+    const npcattk = req.params.npcattk;
+    const npchp = req.params.npchp;
+    let obj = switchFunction(pokemon);
+    let npc = switchFunction("blastoise");
+
+    obj.npcname = npc.name;
+    obj.npcfrontimage = npc.frontImage;
+    obj.npcmaxhealth = npc.maxhealth;
+    obj.npchealth =
+      npchp - (parseInt(userattk) + Math.floor(Math.random() * 50));
+    obj.health = userhp - (parseInt(npcattk) + Math.floor(Math.random() * 50));
+    obj.npcfx = npc.fx;
+
+    res.render("charizard", obj);
+  }
+);
+
+app.get(
+  "/:pokemon/battle/:npchp/:userattk/:userhp/:npcattk/charizard",
+  (req, res) => {
+    const pokemon = req.params.pokemon;
+    const userattk = req.params.userattk;
+    const userhp = req.params.userhp;
+    const npcattk = req.params.npcattk;
+    const npchp = req.params.npchp;
+    let obj = switchFunction(pokemon);
+    let npc = switchFunction("charizard");
+
+    obj.npcname = npc.name;
+    obj.npcfrontimage = npc.frontImage;
+    obj.npcmaxhealth = npc.maxhealth;
+    obj.npchealth =
+      npchp - (parseInt(userattk) + Math.floor(Math.random() * 50));
+    obj.health = userhp - (parseInt(npcattk) + Math.floor(Math.random() * 50));
+    obj.npcfx = npc.fx;
+
+    res.render("venosaur", obj);
+  }
+);
+
+app.get(
+  "/:pokemon/battle/:npchp/:userattk/:userhp/:npcattk/venosaur",
+  (req, res) => {
+    const pokemon = req.params.pokemon;
+    const userattk = req.params.userattk;
+    const userhp = req.params.userhp;
+    const npcattk = req.params.npcattk;
+    const npchp = req.params.npchp;
+    let obj = switchFunction(pokemon);
+    let npc = switchFunction("venosaur");
+
+    obj.npcname = npc.name;
+    obj.npcfrontimage = npc.frontImage;
+    obj.npcmaxhealth = npc.maxhealth;
+    obj.npchealth =
+      npchp - (parseInt(userattk) + Math.floor(Math.random() * 50));
+    obj.health = userhp - (parseInt(npcattk) + Math.floor(Math.random() * 50));
+    obj.npcfx = npc.fx;
+
+    res.render("blastoise", obj);
   }
 );
 

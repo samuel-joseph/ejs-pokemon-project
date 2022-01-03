@@ -11,11 +11,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Yanone+Kaffeesatz:wght@300;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="confetti">
+  <div class="main-class">
     <div>
       <img class="winnerimage" src=<%= frontImage %> alt="" />
+      <div>
+      <p class="ingametxt"><%= name %></p>
+      <p class="ingametxt">HP<%= health %></p>
+      <p class="ingametxt">Type:<%= type %> </p>
+    </div>
   </div>
-  <h4>Thank you for playing the game!</h4>
+  <% if (health<500) { %> 
+    <button class="button"><a href= '<%=battleUrl %>'>
+      RATTATA
+    </a></button>
+  <button class="button"><a href= '<%=battleUrl %>/medium'>
+    SNORLAX
+  </a></button>
+  <% } else{ %>
+    <button class="button"><a href= '<%=battleUrl %>'>
+      RATTATA
+    </a></button>
+    <button class="button"><a href= '<%=battleUrl %>/hard'>
+      FINAL BATTLE
+    </a></button>
+  <% } %>
   <button class="button"><a href= "/">
     NEW GAME
   </a></button>
