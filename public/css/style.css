@@ -254,6 +254,14 @@ progress {
   justify-content: center;
 }
 
+.error {
+  color: red;
+}
+
+.login {
+  margin-top: 200px;
+}
+
 @media only screen and (max-width: 600px) {
   .button {
     width: 50vw;
